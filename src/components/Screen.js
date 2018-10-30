@@ -6,7 +6,7 @@ import { observer, inject } from 'mobx-react';
 class Screen extends Component {
     render() {
         return (
-            <div>{this.props.store.displayValue}</div>
+            <div className='screen'>{this.props.store.displayValue}</div>
         );
     }
 }

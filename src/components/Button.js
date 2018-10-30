@@ -1,9 +1,12 @@
 import React, { Component } from 'react';
+import '../App.css'
 
 class Button extends Component {
+    func = () => this.props.func(this.props.value)
+    
     render() {
         return (
-            <div>{this.props.value}</div>
+            <div className={this.props.styleClass} onClick={this.func}>{this.props.value}</div>
         );
     }
 }

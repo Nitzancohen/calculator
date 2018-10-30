@@ -1,17 +1,16 @@
 import React, { Component } from 'react';
 import Button from './Button';
+import { inject } from 'mobx-react';
 
+@inject('store')
 class Operator extends Component {
-    operators = [
-        { op: '+', opFunction: (a,b) => a+b },
-        { op: '-', opFunction: (a,b) => a-b },
-        { op: '*', opFunction: (a,b) => a*b },
-        { op: '/', opFunction: (a,b) => a/b }
-    ]
+    changeOperator = (value) => {
+        this.props.store.changeOperator(value);        
+    }
 
     render() {
         return (
-            this.operators.map(o => <Button value={o.op} />)
+            <Button value={this.props.value} styleClass="button operator" func={this.changeOperator} />
         );
     }
 }

@@ -7,7 +7,6 @@ import CalculatorStore from './store/CalculatorStore'
 import { Provider } from 'mobx-react';
 
 const store = new CalculatorStore()
-window.store = store;
 
 ReactDOM.render(<Provider store={store}>
                     <App />

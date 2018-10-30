@@ -1,11 +1,16 @@
 import React, { Component } from 'react';
+import Button from './Button';
+import { inject } from 'mobx-react';
 
-class Number extends Component {
-    numbers = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
-    
+@inject('store')
+class Number extends Component {    
+    addNumber = (value) => {
+        this.props.store.addNumber(value)
+    }
+
     render() {
         return (
-            this.numbers.map(n => <Button value={n} />)
+            <Button value={this.props.value} func={this.addNumber} styleClass="button number" />
         );
     }
 }
